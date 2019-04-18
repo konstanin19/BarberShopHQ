@@ -11,6 +11,10 @@ end
 class Barber < ActiveRecord::Base
 end
 
+class Record < ActiveRecord::Base
+end
+
+
 before do
 @barbers = Barber.all
 	end
@@ -42,4 +46,12 @@ post '/visit' do
 
 
 	erb :message
+end
+
+
+get '/showusers' do
+        db = get_db
+
+        @results = db.execute 'select * from Clients order by id desc'
+ erb :showusers
 end

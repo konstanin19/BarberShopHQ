@@ -1,0 +1,27 @@
+
+<table class="table table-striped">
+	<thead>
+
+	  <tr>
+  		<th>Имя</th>
+  		<th>Телефон</th>
+  		<th>Дата записи</th>
+  		<th>Парикмахер</th>
+  		<th>Цвет</th>
+      </tr>
+    </thead>
+   <tbody>
+	<% @results.each do |row| %>
+
+  <tr>
+  	<td><%= row['username'] %></td>
+  	<td><%= row['phone'] %></td>
+  	<td><%= row['datestamp'] %></td>
+  	<td><%= row['barber'] %></td>
+  	<td style="background-color: <%= row['color'] %>"><%= row['color'] %></td>
+  </tr>
+
+  <% end %>
+</tbody>
+
+</table>
