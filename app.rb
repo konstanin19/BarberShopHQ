@@ -45,10 +45,19 @@ post '/visit' do
                 #переменной error присвоить значение value из хеша hh
                 #(а value из хеша hh это сообщение об ошибке)
                 #т.е. переменной error присвоить сообщение об ошибке
-                if @error != ''
-                    return erb :visit
-                end
+    if @error != ''
+        return erb :visit
+    end
 
+    c = Client.new
+    c.name = @username
+    c.phone = @phone
+    c.datestamp = @datestamp
+	c.barber = @barber
+    c.color = @color
+    c.save
+
+      
 
 
 	
@@ -66,8 +75,8 @@ end
 
 
 get '/showusers' do
-        db = get_db
+       # db = get_db
 
-        @results = db.execute 'select * from Clients order by id desc'
+       # @results = db.execute 'select * from Clients order by id desc'
  erb :showusers
 end
