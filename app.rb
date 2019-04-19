@@ -10,8 +10,6 @@ class Client < ActiveRecord::Base
 	validates :phone, presence: true
 	validates :datestamp, presence: true
 	validates :color, presence: true
-	
-
 end
 
 class Barber < ActiveRecord::Base
@@ -31,16 +29,13 @@ end
 
 post '/visit' do
 	c = Client.new params[:client]
-	c.save
-
-
-
-	erb "<h3>Спасибо!
-	         Дорогой client[name], вы записались :datestamp к парикмахеру #{:barber},цвет краски: #{:color}</h3>"
-
+	if c.save
+		erb "<h3>Спасибо!
+	         Дорогой #{client[name]}, вы записались :datestamp к парикмахеру #{:barber},цвет краски: #{:color}</h3>"
+	else
+	erb "<h2>Ошибка</h2>"
+	end	
 end
-
-
 
 get '/showusers' do
   
