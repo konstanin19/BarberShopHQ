@@ -33,7 +33,8 @@ post '/visit' do
 		erb "<h3>Спасибо!
 	         Дорогой #{client[name]}, вы записались :datestamp к парикмахеру #{:barber},цвет краски: #{:color}</h3>"
 	else
-	erb "<h2>Ошибка</h2>"
+	@error = c.errors.full_messages.first
+	erb :visit
 	end	
 end
 
