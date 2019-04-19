@@ -11,8 +11,7 @@
       </tr>
     </thead>
    <tbody>
-    @c = Client.new
-	<% @c.each do |row| %>
+	<% @client.each do |row| %>
 
   <tr>
   	<td><%= row['name'] %></td>

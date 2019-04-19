@@ -40,7 +40,7 @@ post '/visit' do
 end
 
 get '/showusers' do
-  
+  @client = Client.all
  erb :showusers
 end
 
